@@ -1,0 +1,150 @@
+.active {
+    border:1px solid white;
+}
+.requerido{
+    border:1px solid red!important;
+}
+#loader{
+    display:none;
+}
+.stock{
+    background-color:#c8e6c9;
+    border:1px solid #2e7d32!important;
+    color:#1b5e20;
+    border-radius:8px;
+}
+.altas{
+    background-color:#d5e3f6;
+    border:1px solid #0d47a1!important;
+    color:#0d47a1;
+    border-radius:8px;
+}
+.vales{
+    background-color:#ffe6b3;
+    border:1px solid #b35f00!important;
+    color:#b35f00;
+    border-radius:8px;
+}
+.bajas{
+    background-color:#ffe6e6;
+    border:1px solid #CC0000!important;
+    color:#CC0000;
+    border-radius:8px;
+}
+.config{
+    background-color:#ebd6f5;
+    border:1px solid #6b248f!important;
+    color:#6b248f;
+    border-radius:8px;
+}
+.lista-altas{
+    background-color:#d5e3f6;
+    border-top:1px solid #0d47a1!important;
+    border-bottom:1px solid #0d47a1!important;
+}
+.lista-vales{
+    background-color:#ffe6b3;
+    border-top:1px solid #b35f00!important;
+    border-bottom:1px solid #b35f00!important;
+}
+.solapa{
+    background-color:#f2f2f2;
+    color:black;
+    font-size:12px;
+    font-weight:bold;
+    border-radius:0px 6px 6px 0px;
+    border:1px solid black;
+    text-align: center;
+    padding:0px;
+    display:table;
+    cursor: pointer;
+}
+
+.solapa-content{
+    display:table-cell;
+    vertical-align: middle;
+}
+.solapa:hover{
+    background-color:#bfbfbf;
+}
+.buscador{
+    padding-top:6px;
+    padding-bottom:12px;
+    margin:4px 0px;
+    border-radius:8px;
+}
+.normal-vale{
+    font-weight:bold;
+    color:#007E33;
+}
+.minimo-vale{
+    font-weight:bold;    
+    color:#e69100;
+}
+.critico-vale{
+    font-weight:bold;    
+    color:#CC0000;
+}
+.normal{
+    background-color:#c8e6c9;
+    color:#1b5e20;
+}
+.minimo{
+    background-color:#ffffb3;
+    color:#666600;
+}
+.critico{
+    background-color:#ffc2b3;
+    color:#661400;
+}
+.cancelado{
+    font-weight:bold;    
+    color:#a6a6a6;
+}
+.finalizado{
+    font-weight:bold;    
+    color:#0a3575;
+}
+.seleccionado{
+    background-color:#4285F4;
+    color:white;
+}
+.seleccionado_vales{
+    background-color:#ffeb99;
+}
+.btn-form{height:38px;width:100%;padding:4px 0px;}
+.table-sm td,.table-sm th{padding:.2rem!important}
+.table-hover{cursor:pointer;}
+
+.popup {
+  display: none;
+  position: absolute;
+  color:black;
+  padding: 10px 40px 10px 40px;
+  border: solid 1px grey;
+  background: white;
+  text-align: center;
+}
+#btn-editarEstado:hover{
+    cursor: pointer;
+}
+.cuadros-vale{
+    border:0.5px solid black;
+    padding:0;
+    margin:0;
+    width:100%;
+}
+.encabezado-vale{
+    background-color:#e6e6e6;
+    font-weight:bold;
+    margin:0;
+    padding-left:8px;
+    width:100%;
+}
+.articulo-vale{
+    padding-left:8px;
+    font-weight:bold;
+}
+
+#vencidos:hover{cursor:pointer;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+#por_vencer:hover{cursor:pointer;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}

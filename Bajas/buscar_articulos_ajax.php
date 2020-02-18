@@ -1,0 +1,91 @@
+<?php
+include '../Headers/session.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $codigo = test_input($_POST["codigo"]);
+  $descripcion = test_input($_POST["descripcion"]);
+  $marca = test_input($_POST["marca"]);
+  $familia = test_input($_POST["familia"]);
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+
+if (empty($codigo)){
+$sql_codigo = NULL;
+} else {
+$sql_codigo = " AND `codigo` = '" . $codigo . "'";
+}
+
+if (empty($descripcion)){
+$sql_descripcion = NULL;
+} else {
+$sql_descripcion = " AND `descripcion` LIKE '%" . $descripcion . "%'";
+}
+
+if (empty($marca)){
+$sql_marca = NULL;
+} else {
+$sql_marca = " AND `marca` = '" . $marca . "'";
+}
+
+if (empty($familia)){
+$sql_familia = NULL;
+} else {
+$sql_familia = " AND `familia` = '" . $familia . "'";
+}
+
+$sql = "SELECT * FROM altas WHERE `restan` <> '0'" . $sql_codigo . $sql_descripcion . $sql_marca . $sql_familia . " ORDER BY fecha_vto ASC";
+$result = $conn->query($sql);
+
+if ($result != 1) {
+    exit("Algo anduvo mal.");
+}
+
+if ($result->num_rows == 0) {
+    exit('<center><font style="font-weight:bold;color:#9933CC;">No hay artículos con esos criterios.</font></center>');
+}
+
+echo '<div class="table-responsive table-hover mt-2 mb-2 " style="background-color:white;">
+        <table class="table table-sm table-borderless table-striped mb-0" style="border:0.5px solid #163969">
+            <thead>
+              <tr class="primary-color-dark" style="color:white;">
+                <th style="text-align:center;" scope="col">Id</th>
+                <th style="text-align:center;" scope="col">Código</th>
+                <th style="text-align:center;" scope="col">Descripción</th>
+                <th style="text-align:center;" scope="col">Marca</th>
+                <th style="text-align:center;" scope="col">Familia</th>
+                <th style="text-align:center;" scope="col">Lote</th>
+                <th style="text-align:center;" scope="col">Fecha Vto.</th>
+                <th style="text-align:center;" scope="col">Alta</th>
+                <th class="danger-color-dark" style="text-align:center;" scope="col">Baja</th>
+                <th class="success-color-dark" style="text-align:center;" scope="col">Stock</th>
+              </tr>
+            </thead>
+            <tbody>';
+
+while($row = $result->fetch_assoc()) {
+    
+    echo '<tr onclick="' . 'completar(' . "'" . $row["id_alta"] . "'" . ')">
+		<td style="text-align:center;">' . $row["id_alta"] . '</td>
+		<td style="text-align:center;">' . $row["codigo"] . '</td>
+		<td style="text-align:center;">' . $row["descripcion"] . '</td>
+		<td style="text-align:center;">' . $row["marca"] . '</td>
+		<td style="text-align:center;">' . $row["familia"] . '</td>
+		<td style="text-align:center;">' . $row["lote"] . '</td>
+		<td style="text-align:center;">' . $row["fecha_vto"] . '</td>
+		<td style="text-align:center;">' . $row["cantidad"] . '</td>
+		<td style="text-align:center;">' . $row["entregados"] . '</td>
+		<td style="text-align:center;">' . $row["restan"] . '</td>
+	  </tr>';
+}
+    
+echo "</tbody></table></div>"; 
+
+$conn->close();
+?> 
